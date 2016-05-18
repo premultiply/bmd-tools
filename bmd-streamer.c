@@ -125,12 +125,12 @@ static struct display_mode *display_modes[DMODE_MAX] = {
 	},
 	[DMODE_720x576i_25] = &(struct display_mode){
 		.description = "576i 25",
-		.width = 720, .height = 576, .interlaced = 1, .program_fpga = 1,
+		.width = 720, .height = 576, .interlaced = 1, .program_fpga = 0,
 		.fps_numerator = 25, .fps_denominator = 1, .fx2_fps = 0x3,
 		.audio_delay = 0x30, .ain_offset = 0x0000,
-		.r1000 = 0x0500, .r1404 = 0x0071, .r140a = 0x17ff, .r1430_l = 0xff,
-		.r147x = { 0x10, 0x70, 0x70, 0x10 },
-		.r154x = { 0x1050, 0x0000, 0x07ff, 0x0360, 0x0271, 0x0090, 0x002e, 0x07ff, 0x02d0, 0x0240, 0x0019 },
+		.r1000 = 0x0100, .r1404 = 0x0071, .r140a = 0x1005, .r1430_l = 0x00,
+		.r147x = { 0x26, 0x7d, 0x56, 0x07 },
+		.r154x = { 0x0100, 0x0001, 0x07ff, 0x06c0, 0x0271, 0x0120, 0x0017, 0x07ff, 0x05a0, 0x0120, 0x0000 },
 	},
 	/* DMODE_720x480p_59_94 */
 	/* DMODE_720x576p_50 */
@@ -173,12 +173,12 @@ static struct display_mode *display_modes[DMODE_MAX] = {
 	},
 	[DMODE_1920x1080i_25] = &(struct display_mode){
 		.description = "1080i 50",
-		.width = 1920, .height = 1080, .interlaced = 1, .convert_to_1088 = 1,
+		.width = 1920, .height = 1080, .interlaced = 1, .convert_to_1088 = 0,
 		.fps_numerator = 25, .fps_denominator = 1, .fx2_fps = 0x3,
 		.ain_offset = 0x0000,
-		.r1000 = 0x0200, .r1404 = 0x0041, .r140a = 0x1701, .r1430_l = 0xff,
+		.r1000 = 0x0200, .r1404 = 0x0071, .r140a = 0x1001, .r1430_l = 0x02,
 		.r147x = { 0x26, 0x7d, 0x56, 0x07 },
-		.r154x = { 0x0000, 0x0034, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x000e, 0x0780, 0x0438, 0x0000 },
+		.r154x = { 0x0100, 0x0001, 0x07ff, 0x0a50, 0x0465, 0x02d0, 0x0015, 0x07ff, 0x0780, 0x0438, 0x0000 },
 	},
 	[DMODE_1920x1080i_29_97] = &(struct display_mode){
 		.description = "1080i 29.97",
