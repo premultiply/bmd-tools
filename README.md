@@ -17,7 +17,7 @@ and to stream out (currently to stdout) the MPEG TS stream
 from the device. For example, to sent stream as clean
 MPEG-TS via RTP do "bmd-streamer | multicat /dev/stdin IP:PORT -u".
 
-On remote side for example you can use Raspberry Pi do to clean hardware decoding
+On remote side for example you can use Raspberry Pi to do clean hardware decoding
 (including interlacing support and clock recovery) by using
 "omxplayer -s -w -y -r -b -o hdmi --nativedeinterlace --no-osd --no-keys --live rtp://IP:PORT"
 
