@@ -804,7 +804,7 @@ static int bmd_configure_encoder(struct blackmagic_device *bmd, struct encoding_
 	bmd_fujitsu_write(bmd, 0x001018, 0x1100);	// Audio PID
 	bmd_fujitsu_write(bmd, 0x00101a, 0x0100);	// Program Map Table PID
 	bmd_fujitsu_write(bmd, 0x00101c, 0x001f);	// DVB SIT PID
-	bmd_fujitsu_write(bmd, 0x00101e, 0x1001);	// Program clock PID
+	bmd_fujitsu_write(bmd, 0x00101e, 0x1011);	// Program clock PID
 	bmd_fujitsu_write(bmd, 0x001020, 0x00e0);	// Video PES stream ID
 	bmd_fujitsu_write(bmd, 0x001022, 0x00c0);	// Audio PES stream ID
 	bmd_fujitsu_write(bmd, 0x001146, 0x0101);
