@@ -14,8 +14,12 @@ BMDStreamingServer.exe (part of the Windows drivers).
 
 *bmd-streamer* can be used to upload the extracted firmwares,
 and to stream out (currently to stdout) the MPEG TS stream
-from the device. For example, to dump stream to vlc you could
-do "bmd-streamer | vlc stream:///dev/stdin".
+from the device. For example, to sent stream as clean
+MPEG-TS via RTP do "bmd-streamer | multicat /dev/stdin <ip>:<port> -u".
+
+On remote side for example you can use Raspberry Pi do to clean
+hardware decoding (including interlacing support and clock recovery)
+by using "omxplayer -s -w -y -r -b -o hdmi --nativedeinterlace --no-osd --no-keys --live rtp://<ip>:<port>"
 
 Dependencies:
  * libusb (1.0.16 or newer) or libusbx
