@@ -24,3 +24,6 @@ On remote side for example you can use Raspberry Pi to do clean hardware decodin
 Dependencies:
  * libusb (1.0.16 or newer) or libusbx
 
+
+Install build requirements (Raspian/Ubuntu/Debian):
+sudo apt-get install git build-essential libusb-1.0-0-dev
