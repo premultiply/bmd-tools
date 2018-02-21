@@ -31,6 +31,8 @@
 
 #include "blackmagic.h"
 
+#define VERSION "1.0.1"
+
 /*
  * TODO and ideas:
  * - Get VR_SET_AUDIO_DELAY for remaining modes from USB traces
@@ -1301,6 +1303,8 @@ static int handle_hotplug(libusb_context *ctx, libusb_device *dev, libusb_hotplu
 static int usage(void)
 {
 	fprintf(stderr,
+		"bmd-streamer " VERSION "\n"
+		"\n"
 		"usage: bmd-streamer [OPTIONS]\n"
 		"\n"
 		"	-v,--verbose		Print more information\n"
@@ -1364,7 +1368,7 @@ int main(int argc, char **argv)
 	libusb_context *ctx;
 	libusb_hotplug_callback_handle cbhandle;
 	const char *msg = NULL;
-	int i, r, ec = 0, opt, optindex;
+	int i, r, ec = 0, opt, optindex, status;
 
 	signal(SIGCHLD, reapchildren);
 	signal(SIGTERM, dostop);
@@ -1453,6 +1457,9 @@ int main(int argc, char **argv)
 		libusb_handle_events(ctx);
 
 error:
+	// wait child processes to terminate
+	while (waitpid(-1, &status, 0) != -1 || errno != ECHILD);
+
 	if (msg)
 		dlog(LOG_ERR, "failed to %s: %s", msg, libusb_error_name(r));
 	if (ctx)
